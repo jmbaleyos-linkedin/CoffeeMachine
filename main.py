@@ -2,16 +2,19 @@ import data
 from art import logo
 
 def print_report_status():
+    """Prints the current status of the resources."""
     print(f"Water: {data.resources["water"]}ml")
     print(f"Milk: {data.resources["milk"]}ml")
     print(f"Coffee: {data.resources["coffee"]}g")
 
 def print_menu():
+    """Prints the available coffees in the Menu."""
     print("Available coffees:")
     for menu in data.MENU.keys():
         print(f"- {menu.title()} : ${data.MENU[menu]['cost']}")
 
 def integer_checker(message):
+    """Checker if the input is an integer or not."""
     while True:
         try:
             return int(input(message))
@@ -19,6 +22,7 @@ def integer_checker(message):
             print("Please input a number only.")
 
 def coins_inserted_checker(coffee_cost):
+    """Checks if the inserted coins is enough, above, or short. Will continue to loop until the inserted coin matches or above the price of the chosen coffe."""
     total_inserted_coins = 0
     print(F"Please insert ${coffee_cost}.")
     while True:
@@ -36,6 +40,7 @@ def coins_inserted_checker(coffee_cost):
             break
 
 def remaining_balance(total_inserted_coins, coffee_name):
+    """Prints if the coins inserted is still not enough, still short, or there's a change."""
     if total_inserted_coins < coffee_name:
         print(f"Please insert more coins for the remaining ${coffee_name - total_inserted_coins}")
         return False
@@ -47,6 +52,7 @@ def remaining_balance(total_inserted_coins, coffee_name):
         return True
 
 def dispense_coffee(coffee_name):
+    """Process the ordered coffe."""
     print(f"{coffee_name.title()} would cost ${data.MENU[coffee_name]['cost']}.")
     coins_inserted_checker(data.MENU[coffee_name]['cost'])
     for ingredient, need in data.MENU[coffee_name]["ingredients"].items():
@@ -54,6 +60,7 @@ def dispense_coffee(coffee_name):
     print("Thank you for ordering! Grab your change and enjoy your coffee.")
 
 def resources_checker(coffee_name):
+    """Checks if the remaining resources is enough for the ordered coffee."""
     missing_ingredient = False
     for ingredient, need in data.MENU[coffee_name]["ingredients"].items():
         have = data.resources.get(ingredient, 0)
@@ -66,6 +73,7 @@ def resources_checker(coffee_name):
         return True
 
 def refill_resources():
+    """Refill resources."""
     for resource in data.resources.keys():
         data.resources[resource] += integer_checker(f"How much {resource} are you gonna fill? ")
 
