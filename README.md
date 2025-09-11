@@ -62,7 +62,7 @@ Thank you for ordering! Grab your change and enjoy your coffee.
 
 🚀 Getting Started
 1. Clone this repository:
-    - git clone https://github.com/your-username/coffee-machine-simulator.git
+    - git clone https://github.com/jmbaleyos-linkedin/CoffeeMachine.git
 2. Navigate into the project:
     - cd coffee-machine-simulator
 3. Run the program:
