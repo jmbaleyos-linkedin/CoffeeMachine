@@ -64,7 +64,7 @@ Thank you for ordering! Grab your change and enjoy your coffee.
 1. Clone this repository:
     - git clone https://github.com/jmbaleyos-linkedin/CoffeeMachine.git
 2. Navigate into the project:
-    - cd coffee-machine-simulator
+    - cd CoffeeMachine
 3. Run the program:
     - python main.py
 
