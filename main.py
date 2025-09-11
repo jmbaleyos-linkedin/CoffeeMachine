@@ -78,21 +78,21 @@ while continue_running:
         user_input = input("What coffee is you like? ").strip().lower()
         match user_input:
             case "espresso":
-                if resources_checker("espresso"):
-                    dispense_coffee("espresso")
-                    total_earnings += data.MENU["espresso"]["cost"]
+                if resources_checker(user_input):
+                    dispense_coffee(user_input)
+                    total_earnings += data.MENU[user_input]["cost"]
                 else:
                     print(f"Sorry, Espresso is not available. Please pick other coffee.")
             case "latte":
-                if resources_checker("latte"):
-                    dispense_coffee("latte")
-                    total_earnings += data.MENU["latte"]["cost"]
+                if resources_checker(user_input):
+                    dispense_coffee(user_input)
+                    total_earnings += data.MENU[user_input]["cost"]
                 else:
                     print(f"Sorry, Latte is not available. Please pick other coffee.")
             case "cappuccino":
-                if resources_checker("cappuccino"):
-                    dispense_coffee("cappuccino")
-                    total_earnings += data.MENU["cappuccino"]["cost"]
+                if resources_checker(user_input):
+                    dispense_coffee(user_input)
+                    total_earnings += data.MENU[user_input]["cost"]
                 else:
                     print(f"Sorry, Cappuccino is not available. Please pick other coffee.")
             case "refill":
